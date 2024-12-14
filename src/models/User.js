@@ -10,7 +10,12 @@ const UserSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    age: ({ type: Number })
+    age: ({ type: Number }),
+    display: {
+        type: Boolean,
+        required: true,
+        default: true
+    }
 
 });
 

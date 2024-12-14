@@ -7,14 +7,17 @@ router.get('/', (req, res) => {
     res.status(200).json({ mesage: 'Base App API Root'});
 })
 
+// Get users with display set to true
 router.get('/users', async (req, res) => {
     try {
-
+        const users = await User.find({ display: true });
+        res.json(users);
     } catch (error) {
         console.error('Error fetching users:', error.message);
-        res.status(500).json({ message: 'Internal server error'});
+        res.status(500).json({ message: 'Internal server error' });
     }
-})
+});
+
 
 // Get user by email
 router.get('/user', async (req, res) => {
